@@ -10,7 +10,7 @@ addons:
             - oracle-java8-set-default
 env:
     global:
-        - DUMMY=""
+        - TRAVIS_TAG="0.0.1"
     matrix:
         - PLATFORM=x86-win32
         - PLATFORM=x86-linux
@@ -24,8 +24,15 @@ after_success:
   - .travis/send.sh success $WEBHOOK_URL
 after_failure:
   - .travis/send.sh failure $WEBHOOK_URL
-
-
+deploy:
+    provider: releases
+    api_kex: "$GITHUB_API_KEY"
+    file_glob: true
+    file: build/release/*
+    skip_cleanup: true
+    on:
+        tags: true
+        branch: master
 
 
 
