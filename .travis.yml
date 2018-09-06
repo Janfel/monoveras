@@ -1,46 +1,34 @@
 os: linux
 language: minimal
 addons:
-    apt:
-        sources:
-            - ubuntu-toolchain-r-test
-        packages:
-            - gcc-4.9-base
-            - libstdc++6
-            - oracle-java8-set-default
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - gcc-4.9-base
+      - libstdc++6
+      - oracle-java8-set-default
 before_install:
-    - chmod +x .travis/*
+  - chmod +x .travis/*
 install:
-    - .travis/install.sh
+  - .travis/install.sh
 script:
-    - .travis/script.sh
+  - .travis/script.sh
 after_success:
   - .travis/send.sh success $WEBHOOK_URL
 after_failure:
   - .travis/send.sh failure $WEBHOOK_URL
 deploy:
-    - provider: releases
-      api_key: "$GITHUB_API_KEY"
-      file_glob: true
-      file: build/release/*
-      skip_cleanup: true
-      on:
-          tags: false
-          branch: master
-      name: "v0.0.0"
-      body: "Travis automatic build"
-      prerelease: true
-    - provider: releases
-      api_key: "$GITHUB_API_KEY"
-      file_glob: true
-      file: build/release/*
-      skip_cleanup: true
-      on:
-          tags: true
-          branch: master
-      prerelease: true
-
-
-
+  - provider: releases
+    api_key: "$GITHUB_API_KEY"
+    file_glob: true
+    file: build/release/*
+    skip_cleanup: true
+    on:
+      tags: false
+      branch: master
+    name: "v0.0.0"
+    body: "Travis automatic build"
+    prerelease: true
 
 
