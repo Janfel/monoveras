@@ -1,9 +1,10 @@
+os: linux
 language: minimal
 addons:
     apt:
         packages:
             - gcc8
-            - libstdc6
+            - libstdc++6
             - oracle-java8-set-default
 env:
     global:
