@@ -26,17 +26,26 @@ after_success:
 after_failure:
   - .travis/send.sh failure $WEBHOOK_URL
 deploy:
-    provider: releases
-    api_key: "$GITHUB_API_KEY"
-    file_glob: true
-    file: build/release/*
-    skip_cleanup: true
-    on:
-        tags: true
-        branch: master
-    name: "v0.0.1"
-    body: "Travis builds"
-    prerelease: true
+    - provider: releases
+      api_key: "$GITHUB_API_KEY"
+      file_glob: true
+      file: build/release/*
+      skip_cleanup: true
+      on:
+          tags: false
+          branch: master
+      name: "v0.0.0"
+      body: "Travis automatic build"
+      prerelease: true
+    - provider: releases
+      api_key: "$GITHUB_API_KEY"
+      file_glob: true
+      file: build/release/*
+      skip_cleanup: true
+      on:
+          tags: true
+          branch: master
+      prerelease: true
 
 
 
