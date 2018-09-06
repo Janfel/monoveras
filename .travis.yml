@@ -25,7 +25,6 @@ deploy:
       file: build/release/*
       skip_cleanup: true
       on:
-          repo: janfel/monoveras
           tags: false
           branch: master
       name: "v0.0.0"
@@ -37,7 +36,6 @@ deploy:
       file: build/release/*
       skip_cleanup: true
       on:
-          repo: janfel/monoveras
           tags: true
           branch: master
       prerelease: true
