@@ -8,13 +8,6 @@ addons:
             - gcc-4.9-base
             - libstdc++6
             - oracle-java8-set-default
-env:
-    global:
-        - DUMMY=""
-        # - TRAVIS_TAG="0.0.1"
-    matrix:
-        - PLATFORM=x86-win32
-        - PLATFORM=x86-linux
 before_install:
     - chmod +x .travis/*
 install:
@@ -32,6 +25,7 @@ deploy:
       file: build/release/*
       skip_cleanup: true
       on:
+          repo: janfel/monoveras
           tags: false
           branch: master
       name: "v0.0.0"
@@ -43,6 +37,7 @@ deploy:
       file: build/release/*
       skip_cleanup: true
       on:
+          repo: janfel/monoveras
           tags: true
           branch: master
       prerelease: true
