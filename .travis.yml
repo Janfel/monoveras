@@ -25,7 +25,6 @@ deploy:
     file: build/release/*
     skip_cleanup: true
     on:
-      tags: false
       branch: master
     name: "v0.0.0"
     body: "Travis automatic build"
