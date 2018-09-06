@@ -1,0 +1,28 @@
+language: minimal
+addons:
+    apt:
+        packages:
+            - oracle-java8-set-default
+env:
+    global:
+        - DUMMY=""
+    matrix:
+        - PLATFORM=x86-win32
+        - PLATFORM=x86-linux
+before_install:
+    - chmod +x .travis/*
+install:
+    - .travis/install.sh
+script:
+    - .travis/script.sh
+after_success:
+  - .travis/send.sh success $WEBHOOK_URL
+after_failure:
+  - .travis/send.sh failure $WEBHOOK_URL
+
+
+
+
+
+
+
