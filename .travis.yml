@@ -2,8 +2,8 @@ language: minimal
 addons:
     apt:
         packages:
+            - g++-8
             - oracle-java8-set-default
-            - libstdc++6
 env:
     global:
         - DUMMY=""
