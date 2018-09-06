@@ -2,10 +2,11 @@ os: linux
 language: minimal
 addons:
     apt:
+        sources:
+            - ubuntu-toolchain-r-test
         packages:
             - gcc-4.9-base
-              # :w
-              # - libstdc++6
+            - libstdc++6
             - oracle-java8-set-default
 env:
     global:
