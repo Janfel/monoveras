@@ -3,7 +3,7 @@ language: minimal
 addons:
     apt:
         packages:
-            - gcc8
+            - gcc
             - libstdc++6
             - oracle-java8-set-default
 env:
