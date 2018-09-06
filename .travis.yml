@@ -3,6 +3,7 @@ addons:
     apt:
         packages:
             - oracle-java8-set-default
+            - libstdc++6
 env:
     global:
         - DUMMY=""
