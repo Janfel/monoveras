@@ -9,5 +9,6 @@ for platform in "${platforms[@]}"
 do
     mkdir "build/release/$platform"
     java -jar bob.jar --bundle-output "build/release/$platform" --platform "$platform" bundle
+    tar -czf "build/release/$platform.tar.gz" "build/release/$platform"
 done
 

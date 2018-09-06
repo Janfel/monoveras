@@ -22,12 +22,11 @@ deploy:
   - provider: releases
     api_key: "$GITHUB_API_KEY"
     file_glob: true
-    file: build/release/*
+    file: build/release/*.tar.gz
     skip_cleanup: true
-    on:
-      branch: master
-    name: "v0.0.0"
-    body: "Travis automatic build"
     prerelease: true
+    on:
+      tags: true
+      branch: master
 
 
