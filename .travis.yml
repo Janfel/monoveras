@@ -4,10 +4,11 @@ addons:
   apt:
     sources:
       - ubuntu-toolchain-r-test
+      - webupd8team/java
     packages:
       - gcc-4.9-base
       - libstdc++6
-      - oracle-java8-set-default
+      - oracle-java8-installer
 before_install:
   - chmod +x .travis/*
 install:
