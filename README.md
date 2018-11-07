@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.com/Janfel/monoveras.svg?branch=master)](https://travis-ci.com/Janfel/monoveras)
-[![Discord](https://img.shields.io/discord/:serverId.svg)](https://discord.gg/2kPdXhX)
+[![Discord](https://img.shields.io/discord/482511606278782996.svg)](https://discord.gg/2kPdXhX)
 
 
 # Monoveras
