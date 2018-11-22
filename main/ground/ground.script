@@ -1,0 +1,44 @@
+local pieces = {
+	"ground0",
+	"ground1",
+	"ground2",
+	"ground3",
+	"ground4",
+	"ground5",
+	"ground6",
+	"ground7",
+}
+
+local WIDTH = 228
+
+function init(self)
+	-- Add initialization code here
+	self.speed = 360  --  Speed in pixels/s
+end
+
+function update(self, dt)
+	-- Add update code here
+	for _, piece in ipairs(pieces) do
+		local pos = go.get_position(piece)
+		if pos.x <= -WIDTH then
+			pos.x = (#pieces - 1) * WIDTH + (pos.x + WIDTH)
+		end
+		pos.x = pos.x - self.speed * dt
+		go.set_position(pos, piece)
+	end
+end
+
+function on_message(self, message_id, message, sender)
+	-- Add message-handling code here
+	-- Remove this function if not needed
+end
+
+function on_input(self, action_id, action)
+	-- Add input-handling code here
+	-- Remove this function if not needed
+end
+
+function on_reload(self)
+	-- Add reload-handling code here
+	-- Remove this function if not needed
+end
