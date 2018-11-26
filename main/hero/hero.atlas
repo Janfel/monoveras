@@ -1,0 +1,102 @@
+images {
+  image: "/main/images/dummy-assets/hero-images/ArmL01.png"
+}
+images {
+  image: "/main/images/dummy-assets/hero-images/ArmL02.png"
+}
+images {
+  image: "/main/images/dummy-assets/hero-images/ArmL03.png"
+}
+images {
+  image: "/main/images/dummy-assets/hero-images/ArmR01.png"
+}
+images {
+  image: "/main/images/dummy-assets/hero-images/ArmR02.png"
+}
+images {
+  image: "/main/images/dummy-assets/hero-images/ArmR03.png"
+}
+images {
+  image: "/main/images/dummy-assets/hero-images/BodyA01.png"
+}
+images {
+  image: "/main/images/dummy-assets/hero-images/BodyA02.png"
+}
+images {
+  image: "/main/images/dummy-assets/hero-images/BodyB01.png"
+}
+images {
+  image: "/main/images/dummy-assets/hero-images/BodyB02.png"
+}
+images {
+  image: "/main/images/dummy-assets/hero-images/empty.png"
+}
+images {
+  image: "/main/images/dummy-assets/hero-images/Eye01.png"
+}
+images {
+  image: "/main/images/dummy-assets/hero-images/Head01.png"
+}
+images {
+  image: "/main/images/dummy-assets/hero-images/Head02.png"
+}
+images {
+  image: "/main/images/dummy-assets/hero-images/Head02B.png"
+}
+images {
+  image: "/main/images/dummy-assets/hero-images/Head03.png"
+}
+images {
+  image: "/main/images/dummy-assets/hero-images/Head03B.png"
+}
+images {
+  image: "/main/images/dummy-assets/hero-images/LegB01.png"
+}
+images {
+  image: "/main/images/dummy-assets/hero-images/LegB02.png"
+}
+images {
+  image: "/main/images/dummy-assets/hero-images/LegB03.png"
+}
+images {
+  image: "/main/images/dummy-assets/hero-images/LegB04.png"
+}
+images {
+  image: "/main/images/dummy-assets/hero-images/LegL00.png"
+}
+images {
+  image: "/main/images/dummy-assets/hero-images/LegLA01.png"
+}
+images {
+  image: "/main/images/dummy-assets/hero-images/LegLA02.png"
+}
+images {
+  image: "/main/images/dummy-assets/hero-images/LegLA03.png"
+}
+images {
+  image: "/main/images/dummy-assets/hero-images/LegLA04.png"
+}
+images {
+  image: "/main/images/dummy-assets/hero-images/LegR00.png"
+}
+images {
+  image: "/main/images/dummy-assets/hero-images/LegRA01.png"
+}
+images {
+  image: "/main/images/dummy-assets/hero-images/LegRA02.png"
+}
+images {
+  image: "/main/images/dummy-assets/hero-images/LegRA03.png"
+}
+images {
+  image: "/main/images/dummy-assets/hero-images/LegRA04.png"
+}
+images {
+  image: "/main/images/dummy-assets/hero-images/ThighL.png"
+}
+images {
+  image: "/main/images/dummy-assets/hero-images/ThighR.png"
+}
+margin: 0
+extrude_borders: 0
+inner_padding: 0
