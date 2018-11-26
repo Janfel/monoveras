@@ -6,14 +6,14 @@ local pieces = {
 	"ground4",
 	"ground5",
 	"ground6",
-	"ground7",
+	"ground7"
 }
 
 local WIDTH = 228
 
 function init(self)
 	-- Add initialization code here
-	self.speed = 360  --  Speed in pixels/s
+	self.speed = 360 --  Speed in pixels/s
 end
 
 function update(self, dt)
