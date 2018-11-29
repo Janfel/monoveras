@@ -33,7 +33,7 @@ function update(self, dt)
 	go.set_position(go.get_position() + self.velocity * dt)
 
 	-- Reset volatile state
-	self.correction = vmath.vector()
+	self.correction = vmath.vector3()
 	self.ground_contact = false
 end
 
