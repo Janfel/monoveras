@@ -22,7 +22,7 @@ embedded_components {
   "blend_mode: BLEND_MODE_ALPHA\n"
   ""
   position {
-    x: 0.0
+    x: -191.0
     y: 0.0
     z: 0.0
   }
@@ -60,7 +60,7 @@ embedded_components {
   "    index: 0\n"
   "    count: 3\n"
   "  }\n"
-  "  data: 189.7785\n"
+  "  data: 381.7895\n"
   "  data: 72.888\n"
   "  data: 10.0\n"
   "}\n"
@@ -70,6 +70,26 @@ embedded_components {
   ""
   position {
     x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+}
+embedded_components {
+  id: "sprite1"
+  type: "sprite"
+  data: "tile_set: \"/main/level/level.atlas\"\n"
+  "default_animation: \"rock_planks\"\n"
+  "material: \"/builtins/materials/sprite.material\"\n"
+  "blend_mode: BLEND_MODE_ALPHA\n"
+  ""
+  position {
+    x: 189.0
     y: 0.0
     z: 0.0
   }
