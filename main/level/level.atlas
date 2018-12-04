@@ -1,6 +1,9 @@
 images {
   image: "/main/images/dummy-assets/level-images/rock_planks.png"
 }
+images {
+  image: "/main/images/dummy-assets/level-images/spikes.png"
+}
 margin: 0
 extrude_borders: 0
 inner_padding: 0
