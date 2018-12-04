@@ -21,16 +21,37 @@ function final(self)
 	msg.post(".", "release_input_focus")
 end
 
+local function play_animation(self, anim)
+	if self.anim ~=anim then
+		spine.play_anim("#spinemodel", anim, go.PLAYBACK_LOOP_FORWARD)
+		self.anim = anim
+	end
+end
+
+local function update_animation(self)
+	if self.ground_contact then
+		play_animation(self, hash("run_right"))
+	else
+		if self.velocity.y > 0 then
+			play_animation(self, hash("jump_right"))
+		else
+			play_animation(self, hash("fall_right"))
+		end
+	end
+end
+
 function update(self, dt)
-	local gravity = vmath.vector3(0, gravity, 0)
+	local gravity_vec = vmath.vector3(0, gravity, 0)
 
 	if not self.ground_contact then
 		-- Apply gravity
-		self.velocity = self.velocity + gravity
+		self.velocity = self.velocity + gravity_vec
 	end
 
 	-- Apply velocity
 	go.set_position(go.get_position() + self.velocity * dt)
+
+	update_animation(self)
 
 	-- Reset volatile state
 	self.correction = vmath.vector3()
