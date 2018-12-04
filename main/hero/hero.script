@@ -12,8 +12,7 @@ function init(self)
 	self.position = go.get_position()
 
 	-- Initialize state
-	self.velocity = vmath.vector3(0, 0, 0)
-	self.ground_contact = false
+	msg.post("#", "reset")
 end
 
 function final(self)
@@ -58,6 +57,31 @@ function update(self, dt)
 	self.ground_contact = false
 end
 
+local function reset(self)
+	self.velocity = vmath.vector3(0, 0, 0)
+	self.correction = vmath.vector3()
+	self.ground_contact = false
+	self.anim = nil
+	go.set(".", "euler.z", 0)
+	go.set_position(self.position)
+	msg.post("#collisionobject", "enable")
+end
+
+local function die(self)
+	-- Die and restart
+	play_animation(self, hash("die_right"))
+	msg.post("#collisionobject", "disable")
+
+	-- Animation copied
+	go.animate(".", "euler.z", go.PLAYBACK_ONCE_FORWARD, 160, go.EASING_LINEAR, 0.7)
+	go.animate(".", "position.y", go.PLAYBACK_ONCE_FORWARD,
+		go.get_position().y - 200, go.EASING_INSINE, 0.5, 0.2,
+		function()
+			msg.post("#", "reset")
+		end)
+	-- Copy end
+end
+
 local function handle_geometry_contact(self, normal, distance)
 	-- Project the correction vector onto the contact normal
 	-- (the correction vector is the 0-vector for the first contact point)
@@ -83,22 +107,12 @@ local function handle_geometry_contact(self, normal, distance)
 end
 
 function on_message(self, message_id, message, sender)
-	if message_id == hash("contact_point_response") then
+	if message_id == hash("reset") then
+		reset(self)
+	elseif message_id == hash("contact_point_response") then
 		-- Check for contact point message
 		if message.group == hash("danger") then
-			-- Die and restart
-			play_animation(self, hash("die_right"))
-			msg.post("#collisionobject", "disable")
-
-			-- Animation copied
-			go.animate(".", "euler.z", go.PLAYBACK_ONCE_FORWARD, 160, go.EASING_LINEAR, 0.7)
-            go.animate(".", "position.y", go.PLAYBACK_ONCE_FORWARD,
-				go.get_position().y - 200, go.EASING_INSINE, 0.5, 0.2,
-                function()
-                    msg.post("#", "reset")
-                end)
-			-- Copy end
-
+			die(self)
 		elseif message.group == hash("geometry") then
 			handle_geometry_contact(self, message.normal, message.distance)
 		end
