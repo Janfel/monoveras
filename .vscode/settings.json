@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "*.script": "lua",
+        "*.go": "plaintext"
+    },
+    "lua.targetVersion": "5.1"
+}
