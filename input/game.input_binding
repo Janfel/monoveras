@@ -1,0 +1,20 @@
+key_trigger {
+  input: KEY_SPACE
+  action: "space"
+}
+key_trigger {
+  input: KEY_Q
+  action: "q"
+}
+key_trigger {
+  input: KEY_W
+  action: "w"
+}
+key_trigger {
+  input: KEY_E
+  action: "e"
+}
+key_trigger {
+  input: KEY_R
+  action: "r"
+}
