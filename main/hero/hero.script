@@ -1,5 +1,7 @@
 local gravity_v = vmath.vector3(0, -40, 0)
 local jump_v = vmath.vector3(0, 1300, 0)
+local movement_v = vmath.vector3(500, 0, 0)
+local friction = 0.5
 
 local function reset(self)
 	self.velocity = vmath.vector3(0, 0, 0)
@@ -93,16 +95,25 @@ local function handle_jump(self, message, sender)
 	if message.pressed and self.ground_contact then
 		self.velocity = self.velocity + jump_v
 	elseif message.released and self.velocity.y > 0 then
-		self.velocity.y = self.velocity.y * 0.5
+		local damper = 0.5
+		self.velocity.y = self.velocity.y * damper
 	end
 end
 
 local function handle_left(self, message, sender)
-	-- TODO implement
+	if message.pressed then
+		self.velocity = self.velocity - movement_v
+	elseif message.released then
+		self.velocity = self.velocity + movement_v
+	end
 end
 
 local function handle_right(self, message, sender)
-	-- TODO implement
+	if message.pressed then
+		self.velocity = self.velocity + movement_v
+	elseif message.released then
+		self.velocity = self.velocity - movement_v
+	end
 end
 
 local function handle_up(self, message, sender)
