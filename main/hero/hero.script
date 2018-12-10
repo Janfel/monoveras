@@ -97,9 +97,29 @@ local function handle_jump(self, message, sender)
 	end
 end
 
+local function handle_left(self, message, sender)
+	-- TODO implement
+end
+
+local function handle_right(self, message, sender)
+	-- TODO implement
+end
+
+local function handle_up(self, message, sender)
+	-- TODO implement
+end
+
+local function handle_down(self, message, sender)
+	-- TODO implement
+end
+
 local messages = {
 	[hash("contact_point_response")] = handle_contact_point_response,
-	[hash("jump")] = handle_jump
+	[hash("jump")] = handle_jump,
+	[hash("left")] = handle_left,
+	[hash("right")] = handle_right,
+	[hash("up")] = handle_up,
+	[hash("down")] = handle_down,
 }
 -- #endregion Message handlers
 
