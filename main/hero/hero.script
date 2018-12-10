@@ -1,5 +1,5 @@
-local gravity_v = vmath.vector3(0, -20, 0)
-local jump_v = vmath.vector3(0, 900, 0)
+local gravity_v = vmath.vector3(0, -40, 0)
+local jump_v = vmath.vector3(0, 1300, 0)
 
 local function reset(self)
 	self.velocity = vmath.vector3(0, 0, 0)
@@ -90,12 +90,16 @@ local function handle_contact_point_response(self, message, sender)
 end
 
 local function handle_jump(self, message, sender)
-	-- TODO implement
+	if message.pressed and self.ground_contact then
+		self.velocity = self.velocity + jump_v
+	elseif message.released and self.velocity.y > 0 then
+		self.velocity.y = self.velocity.y * 0.5
+	end
 end
 
 local messages = {
 	[hash("contact_point_response")] = handle_contact_point_response,
-	[hash("jump")] = jump
+	[hash("jump")] = handle_jump
 }
 -- #endregion Message handlers
 
