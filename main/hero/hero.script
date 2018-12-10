@@ -1,7 +1,6 @@
-local gravity_v = vmath.vector3(0, -40, 0)
-local jump_v = vmath.vector3(0, 1300, 0)
-local movement_v = vmath.vector3(500, 0, 0)
-local friction = 0.5
+local GRAVITY_V = vmath.vector3(0, -40, 0)
+local JUMP_V = vmath.vector3(0, 1300, 0)
+local MOVEMENT_V = vmath.vector3(500, 0, 0)
 
 local function reset(self)
 	self.velocity = vmath.vector3(0, 0, 0)
@@ -12,12 +11,12 @@ local function reset(self)
 end
 
 function init(self)
+	msg.post(".", "acquire_input_focus")
 	reset(self)
 end
 
 function final(self)
-	-- Add finalization code here
-	-- Remove this function if not needed
+	msg.post(".", "release_input_focus")
 end
 
 local function update_animation(self)
@@ -26,7 +25,7 @@ end
 
 function update(self, dt)
 	if not self.ground_contact then
-		self.velocity = self.velocity + gravity_v
+		self.velocity = self.velocity + GRAVITY_V
 	end
 
 	-- Apply velocity
@@ -77,7 +76,7 @@ local function handle_danger(self, message, sender)
 	-- TODO implement
 end
 
-local contact_groups = {
+local CONTACT_GROUPS = {
 	[hash("geometry")] = handle_geometry,
 	[hash("danger")] = handle_danger
 }
@@ -85,63 +84,70 @@ local contact_groups = {
 
 -- #region Message handlers
 local function handle_contact_point_response(self, message, sender)
-	func = contact_groups[message.group]
+	func = CONTACT_GROUPS[message.group]
 	if func then
 		func(self, message, sender)
 	end
 end
 
-local function handle_jump(self, message, sender)
-	if message.pressed and self.ground_contact then
-		self.velocity = self.velocity + jump_v
-	elseif message.released and self.velocity.y > 0 then
+local MESSAGES = {
+	[hash("contact_point_response")] = handle_contact_point_response
+}
+-- #endregion Message handlers
+
+function on_message(self, message_id, message, sender)
+	func = MESSAGES[message_id]
+	if func then
+		func(self, message, sender)
+	end
+end
+
+-- #region Input handlers
+local function handle_jump(self, action)
+	if action.pressed and self.ground_contact then
+		self.velocity = self.velocity + JUMP_V
+	elseif action.released and self.velocity.y > 0 then
 		local damper = 0.5
 		self.velocity.y = self.velocity.y * damper
 	end
 end
 
-local function handle_left(self, message, sender)
-	if message.pressed then
-		self.velocity = self.velocity - movement_v
-	elseif message.released then
-		self.velocity = self.velocity + movement_v
+local function handle_left(self, action)
+	if action.pressed then
+		self.velocity = self.velocity - MOVEMENT_V
+	elseif action.released then
+		self.velocity = self.velocity + MOVEMENT_V
 	end
 end
 
-local function handle_right(self, message, sender)
-	if message.pressed then
-		self.velocity = self.velocity + movement_v
-	elseif message.released then
-		self.velocity = self.velocity - movement_v
+local function handle_right(self, action)
+	if action.pressed then
+		self.velocity = self.velocity + MOVEMENT_V
+	elseif action.released then
+		self.velocity = self.velocity - MOVEMENT_V
 	end
 end
 
-local function handle_up(self, message, sender)
+local function handle_up(self, action)
 	-- TODO implement
 end
 
-local function handle_down(self, message, sender)
+local function handle_down(self, action)
 	-- TODO implement
 end
 
-local messages = {
-	[hash("contact_point_response")] = handle_contact_point_response,
+local INPUTS = {
 	[hash("jump")] = handle_jump,
 	[hash("left")] = handle_left,
 	[hash("right")] = handle_right,
 	[hash("up")] = handle_up,
-	[hash("down")] = handle_down,
+	[hash("down")] = handle_down
 }
--- #endregion Message handlers
+-- #endregion Input handlers
 
-function on_message(self, message_id, message, sender)
-	func = messages[message_id]
+function on_input(self, action_id, action)
+	func = INPUTS[action_id]
 	if func then
-		func(self, message, sender)
+		func(self, action)
 	end
-end
-
-function on_reload(self)
-	-- Add reload-handling code here
-	-- Remove this function if not needed
 end
