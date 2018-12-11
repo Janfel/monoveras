@@ -19,4 +19,44 @@ collection_instances {
     z: 1.0
   }
 }
+collection_instances {
+  id: "ground1"
+  collection: "/main/level/ground/ground.collection"
+  position {
+    x: -283.0
+    y: 202.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+collection_instances {
+  id: "ground2"
+  collection: "/main/level/ground/ground.collection"
+  position {
+    x: 881.0
+    y: 104.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
 scale_along_z: 0
