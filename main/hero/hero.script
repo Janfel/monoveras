@@ -1,9 +1,12 @@
-local GRAVITY_V = vmath.vector3(0, -40, 0)
+local GRAVITY_V = vmath.vector3(0, -2500, 0)
 local JUMP_V = vmath.vector3(0, 1300, 0)
-local MOVEMENT_V = vmath.vector3(500, 0, 0)
+local SPEED = 1000
+local FRICTION = 0.8
+local MAX_MOVEMENT_V = vmath.vector3(500, 1500, 0)
 
 local function reset(self)
 	self.velocity = vmath.vector3(0, 0, 0)
+	self.movement = 0
 	self.correction = vmath.vector3()
 	self.ground_contact = false
 	self.anim = nil
@@ -23,13 +26,38 @@ local function update_animation(self)
 	-- TODO implement
 end
 
+local function vector_cap(vec, cap)
+	result = vmath.vector3(vec)
+	if math.abs(vec.x) > cap.x then
+		result.x = vec.x > 0 and cap.x or -cap.x
+	end
+	if math.abs(vec.y) > cap.y then
+		result.y = vec.y > 0 and cap.y or -cap.y
+	end
+	if math.abs(vec.z) > cap.z then
+		result.z = vec.z > 0 and cap.z or -cap.z
+	end
+	return result
+end
+
 function update(self, dt)
+	local dv = self.movement * vmath.vector3(SPEED, 0, 0) * dt
 	if not self.ground_contact then
-		self.velocity = self.velocity + GRAVITY_V
+		dv = dv + GRAVITY_V * dt
 	end
 
+	local v0 = self.velocity
+	self.velocity = self.velocity + dv
+
+	if self.movement == 0 then
+		self.velocity.x = math.floor(self.velocity.x * FRICTION)
+	end
+
+	self.velocity = vector_cap(self.velocity, MAX_MOVEMENT_V)
+	local dx = (v0 + self.velocity) * dt * 0.5
+
 	-- Apply velocity
-	go.set_position(go.get_position() + self.velocity * dt)
+	go.set_position(go.get_position() + dx)
 
 	update_animation(self)
 
@@ -114,17 +142,17 @@ end
 
 local function handle_left(self, action)
 	if action.pressed then
-		self.velocity = self.velocity - MOVEMENT_V
+		self.movement = self.movement - 1
 	elseif action.released then
-		self.velocity = self.velocity + MOVEMENT_V
+		self.movement = self.movement + 1
 	end
 end
 
 local function handle_right(self, action)
 	if action.pressed then
-		self.velocity = self.velocity + MOVEMENT_V
+		self.movement = self.movement + 1
 	elseif action.released then
-		self.velocity = self.velocity - MOVEMENT_V
+		self.movement = self.movement - 1
 	end
 end
 
