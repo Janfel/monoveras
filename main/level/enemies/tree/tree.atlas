@@ -1,0 +1,28 @@
+animations {
+  id: "left"
+  images {
+    image: "/main/level/enemies/tree/images/tree_left_0.png"
+  }
+  images {
+    image: "/main/level/enemies/tree/images/tree_left_1.png"
+  }
+  images {
+    image: "/main/level/enemies/tree/images/tree_left_2.png"
+  }
+  images {
+    image: "/main/level/enemies/tree/images/tree_left_3.png"
+  }
+  images {
+    image: "/main/level/enemies/tree/images/tree_left_4.png"
+  }
+  images {
+    image: "/main/level/enemies/tree/images/tree_left_5.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 6
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+margin: 0
+extrude_borders: 0
+inner_padding: 0
