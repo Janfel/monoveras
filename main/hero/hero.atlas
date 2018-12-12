@@ -1,5 +1,22 @@
-images {
-  image: "/main/hero/images/logo.png"
+animations {
+  id: "left"
+  images {
+    image: "/main/hero/images/hero_left_0.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 60
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "right"
+  images {
+    image: "/main/hero/images/hero_right_0.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 60
+  flip_horizontal: 0
+  flip_vertical: 0
 }
 margin: 0
 extrude_borders: 0
