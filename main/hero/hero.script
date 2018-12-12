@@ -6,15 +6,17 @@ local MAX_MOVEMENT_V = vmath.vector3(500, 1500, 0)
 
 local function reset(self)
 	self.velocity = vmath.vector3(0, 0, 0)
-	self.movement = 0
 	self.correction = vmath.vector3()
 	self.ground_contact = false
 	self.anim = nil
+	go.set_position(self.starting_pos)
 	msg.post("#collisionobject", "enable")
 end
 
 function init(self)
 	msg.post(".", "acquire_input_focus")
+	self.movement = 0
+	self.starting_pos = go.get_position()
 	reset(self)
 end
 
@@ -103,6 +105,7 @@ end
 local function handle_danger(self, message, sender)
 	-- TODO implement
 	print("DANGER")
+	reset(self)
 end
 
 local CONTACT_GROUPS = {
