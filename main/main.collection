@@ -13,24 +13,6 @@ instances {
     z: 0.0
     w: 1.0
   }
-  component_properties {
-    id: "hero"
-    properties {
-      id: "speed"
-      value: "1500.0"
-      type: PROPERTY_TYPE_NUMBER
-    }
-    properties {
-      id: "max_speed"
-      value: "800.0"
-      type: PROPERTY_TYPE_NUMBER
-    }
-    properties {
-      id: "jump"
-      value: "4000.0"
-      type: PROPERTY_TYPE_NUMBER
-    }
-  }
   scale3 {
     x: 1.0
     y: 1.0
@@ -40,6 +22,7 @@ instances {
 instances {
   id: "camera"
   prototype: "/orthographic/camera.go"
+  children: "background"
   children: "coin_counter"
   position {
     x: 0.0
@@ -54,6 +37,16 @@ instances {
   }
   component_properties {
     id: "script"
+    properties {
+      id: "near_z"
+      value: "-20.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "far_z"
+      value: "20.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
     properties {
       id: "projection"
       value: "FIXED_AUTO"
@@ -81,7 +74,7 @@ instances {
     }
     properties {
       id: "deadzone_bottom"
-      value: "200.0"
+      value: "100.0"
       type: PROPERTY_TYPE_NUMBER
     }
     properties {
@@ -91,7 +84,7 @@ instances {
     }
     properties {
       id: "deadzone_top"
-      value: "100.0"
+      value: "250.0"
       type: PROPERTY_TYPE_NUMBER
     }
   }
@@ -108,6 +101,26 @@ instances {
     x: 0.0
     y: 0.0
     z: 20.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "background"
+  prototype: "/main/background/background.go"
+  position {
+    x: 0.0
+    y: 0.0
+    z: -20.0
   }
   rotation {
     x: 0.0
