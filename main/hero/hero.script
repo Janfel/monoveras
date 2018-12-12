@@ -9,8 +9,10 @@ local function reset(self)
 	self.correction = vmath.vector3()
 	self.ground_contact = false
 	self.anim = nil
+	self.coins = 0
 	go.set_position(self.starting_pos)
 	msg.post("#collisionobject", "enable")
+	msg.post("/level/coins#coins", "reset")
 end
 
 function init(self)
@@ -108,9 +110,15 @@ local function handle_danger(self, message, sender)
 	reset(self)
 end
 
+local function handle_coin(self, message, sender)
+	self.coins = self.coins + 1
+	print("Got coin")
+end
+
 local CONTACT_GROUPS = {
 	[hash("geometry")] = handle_geometry,
-	[hash("danger")] = handle_danger
+	[hash("danger")] = handle_danger,
+	[hash("coin")] = handle_coin
 }
 -- #endregion Contact point response handlers
 

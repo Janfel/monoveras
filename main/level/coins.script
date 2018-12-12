@@ -1,0 +1,25 @@
+function init(self)
+	self.coins = {}
+end
+
+local function handle_add_coin(self, message, sender)
+	self.coins[#self.coins + 1] = sender
+end
+
+local function handle_reset(self, message, sender)
+	for _, url in ipairs(self.coins) do
+		msg.post(url, "reset")
+	end
+end
+
+local MESSAGES = {
+	[hash("add_coin")] = handle_add_coin,
+	[hash("reset")] = handle_reset
+}
+
+function on_message(self, message_id, message, sender)
+	func = MESSAGES[message_id]
+	if func then
+		func(self, message, sender)
+	end
+end

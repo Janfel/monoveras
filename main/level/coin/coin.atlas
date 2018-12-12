@@ -1,0 +1,34 @@
+animations {
+  id: "spin"
+  images {
+    image: "/main/level/coin/images/coin00.png"
+  }
+  images {
+    image: "/main/level/coin/images/coin01.png"
+  }
+  images {
+    image: "/main/level/coin/images/coin02.png"
+  }
+  images {
+    image: "/main/level/coin/images/coin03.png"
+  }
+  images {
+    image: "/main/level/coin/images/coin04.png"
+  }
+  images {
+    image: "/main/level/coin/images/coin05.png"
+  }
+  images {
+    image: "/main/level/coin/images/coin06.png"
+  }
+  images {
+    image: "/main/level/coin/images/coin07.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 15
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+margin: 0
+extrude_borders: 0
+inner_padding: 0

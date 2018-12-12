@@ -1,0 +1,25 @@
+function init(self)
+	msg.post("/level/coins#coins", "add_coin")
+end
+
+local function handle_contact_point_response(self, message, sender)
+	msg.post("#collisionobject", "disable")
+	msg.post("#sprite", "disable")
+end
+
+local function handle_reset(self, message, sender)
+	msg.post("#collisionobject", "enable")
+	msg.post("#sprite", "enable")
+end
+
+local MESSAGES = {
+	[hash("contact_point_response")] = handle_contact_point_response,
+	[hash("reset")] = handle_reset
+}
+
+function on_message(self, message_id, message, sender)
+	func = MESSAGES[message_id]
+	if func then
+		func(self, message, sender)
+	end
+end
