@@ -1,8 +1,9 @@
-local GRAVITY_V = vmath.vector3(0, -2500, 0)
-local JUMP_V = vmath.vector3(0, 1300, 0)
-local SPEED = 1000
-local FRICTION = 0.8
-local MAX_MOVEMENT_V = vmath.vector3(500, 1500, 0)
+go.property("speed", 1500)
+go.property("max_speed", 800)
+go.property("jump", 4000)
+go.property("gravity", 2500)
+go.property("max_fall_speed", 1500)
+go.property("friction", 0.8)
 
 local function reset(self)
 	self.velocity = vmath.vector3(0, 0, 0)
@@ -46,19 +47,20 @@ local function vector_cap(vec, cap)
 end
 
 function update(self, dt)
-	local dv = self.movement * vmath.vector3(SPEED, 0, 0) * dt
+	local dv = self.movement * vmath.vector3(self.speed, 0, 0) * dt
 	if not self.ground_contact then
-		dv = dv + GRAVITY_V * dt
+		dv = dv + vmath.vector3(0, -self.gravity, 0) * dt
 	end
 
 	local v0 = self.velocity
 	self.velocity = self.velocity + dv
 
 	if self.movement == 0 then
-		self.velocity.x = math.floor(self.velocity.x * FRICTION)
+		self.velocity.x = math.floor(self.velocity.x * self.friction)
 	end
 
-	self.velocity = vector_cap(self.velocity, MAX_MOVEMENT_V)
+	local max_velocity_v = vmath.vector3(self.max_speed, self.max_fall_speed, 0)
+	self.velocity = vector_cap(self.velocity, max_velocity_v)
 	local dx = (v0 + self.velocity) * dt * 0.5
 
 	-- Apply velocity
@@ -146,7 +148,7 @@ end
 -- #region Input handlers
 local function handle_jump(self, action)
 	if action.pressed and self.ground_contact then
-		self.velocity = self.velocity + JUMP_V
+		self.velocity = self.velocity + vmath.vector3(0, self.jump, 0)
 	elseif action.released and self.velocity.y > 0 then
 		local damper = 0.5
 		self.velocity.y = self.velocity.y * damper
