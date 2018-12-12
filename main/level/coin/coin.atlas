@@ -1,5 +1,5 @@
 animations {
-  id: "spin"
+  id: "spin_old"
   images {
     image: "/main/level/coin/images/coin00.png"
   }
@@ -26,6 +26,25 @@ animations {
   }
   playback: PLAYBACK_LOOP_FORWARD
   fps: 15
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "spin"
+  images {
+    image: "/main/level/coin/images/coin_0.png"
+  }
+  images {
+    image: "/main/level/coin/images/coin_1.png"
+  }
+  images {
+    image: "/main/level/coin/images/coin_2.png"
+  }
+  images {
+    image: "/main/level/coin/images/coin_3.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
   flip_horizontal: 0
   flip_vertical: 0
 }
