@@ -1,5 +1,5 @@
 images {
-  image: "/main/level/ground/images/brown.jpg"
+  image: "/main/level/ground/lava/images/red.jpg"
 }
 margin: 0
 extrude_borders: 0

@@ -102,6 +102,7 @@ end
 
 local function handle_danger(self, message, sender)
 	-- TODO implement
+	print("DANGER")
 end
 
 local CONTACT_GROUPS = {
