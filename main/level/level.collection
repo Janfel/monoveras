@@ -3,8 +3,8 @@ instances {
   id: "coin"
   prototype: "/main/level/coin/coin.go"
   position {
-    x: 454.0
-    y: 397.0
+    x: 1054.0
+    y: 513.0
     z: 0.0
   }
   rotation {
@@ -23,8 +23,8 @@ instances {
   id: "coin1"
   prototype: "/main/level/coin/coin.go"
   position {
-    x: 1470.0
-    y: 1298.0
+    x: 244.0
+    y: 216.0
     z: 0.0
   }
   rotation {
@@ -43,8 +43,8 @@ instances {
   id: "coin2"
   prototype: "/main/level/coin/coin.go"
   position {
-    x: 570.0
-    y: 1330.0
+    x: -4222.0
+    y: -514.0
     z: 0.0
   }
   rotation {
@@ -63,8 +63,8 @@ instances {
   id: "coin3"
   prototype: "/main/level/coin/coin.go"
   position {
-    x: -1108.0
-    y: 754.0
+    x: -2446.0
+    y: 186.0
     z: 0.0
   }
   rotation {
@@ -83,8 +83,8 @@ instances {
   id: "coin4"
   prototype: "/main/level/coin/coin.go"
   position {
-    x: -228.0
-    y: 412.0
+    x: -3124.0
+    y: -428.0
     z: 0.0
   }
   rotation {
@@ -103,108 +103,8 @@ instances {
   id: "coin5"
   prototype: "/main/level/coin/coin.go"
   position {
-    x: -590.0
-    y: 403.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
-}
-instances {
-  id: "coin6"
-  prototype: "/main/level/coin/coin.go"
-  position {
-    x: -2052.0
-    y: 824.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
-}
-instances {
-  id: "coin7"
-  prototype: "/main/level/coin/coin.go"
-  position {
-    x: -1473.0
-    y: 418.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
-}
-instances {
-  id: "coin8"
-  prototype: "/main/level/coin/coin.go"
-  position {
-    x: -79.0
-    y: 1459.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
-}
-instances {
-  id: "coin9"
-  prototype: "/main/level/coin/coin.go"
-  position {
-    x: 957.0
-    y: 820.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
-}
-instances {
-  id: "coin10"
-  prototype: "/main/level/coin/coin.go"
-  position {
-    x: 97.0
-    y: 562.0
+    x: -974.0
+    y: 259.0
     z: 0.0
   }
   rotation {
@@ -225,6 +125,46 @@ instances {
   position {
     x: 0.0
     y: -1185.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "tree"
+  prototype: "/main/level/enemies/tree/tree.go"
+  position {
+    x: -190.0
+    y: 106.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "tree1"
+  prototype: "/main/level/enemies/tree/tree.go"
+  position {
+    x: -1904.0
+    y: -314.0
     z: 0.0
   }
   rotation {
@@ -264,15 +204,10 @@ embedded_instances {
   id: "coins"
   children: "coin"
   children: "coin1"
-  children: "coin10"
   children: "coin2"
   children: "coin3"
   children: "coin4"
   children: "coin5"
-  children: "coin6"
-  children: "coin7"
-  children: "coin8"
-  children: "coin9"
   data: "components {\n"
   "  id: \"coins\"\n"
   "  component: \"/main/level/coins.script\"\n"
@@ -301,8 +236,8 @@ embedded_instances {
     w: 1.0
   }
   scale3 {
-    x: 1.0
-    y: 1.0
+    x: 0.5
+    y: 0.5
     z: 1.0
   }
 }
