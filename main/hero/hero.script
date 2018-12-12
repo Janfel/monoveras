@@ -13,6 +13,7 @@ local function reset(self)
 	go.set_position(self.starting_pos)
 	msg.post("#collisionobject", "enable")
 	msg.post("/level/coins#coins", "reset")
+	msg.post("/coin_counter#coin_counter", "update", {coins = self.coins})
 end
 
 function init(self)
@@ -112,7 +113,7 @@ end
 
 local function handle_coin(self, message, sender)
 	self.coins = self.coins + 1
-	print("Got coin")
+	msg.post("/coin_counter", "update", {coins = self.coins})
 end
 
 local CONTACT_GROUPS = {

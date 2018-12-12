@@ -1,0 +1,13 @@
+function init(self)
+	self.coins = 0
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("update") then
+		if self.coins ~= message.coins then
+			self.coins = message.coins
+		end
+		local node = gui.get_node("counter")
+		gui.set_text(node, self.coins)
+	end
+end
