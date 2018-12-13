@@ -23,8 +23,8 @@ instances {
   id: "coin1"
   prototype: "/main/level/coin/coin.go"
   position {
-    x: 244.0
-    y: 216.0
+    x: 2036.0
+    y: 838.0
     z: 0.0
   }
   rotation {
@@ -84,7 +84,7 @@ instances {
   prototype: "/main/level/coin/coin.go"
   position {
     x: -3124.0
-    y: -428.0
+    y: 152.0
     z: 0.0
   }
   rotation {
@@ -179,6 +179,86 @@ instances {
     z: 1.0
   }
 }
+instances {
+  id: "bush_1"
+  prototype: "/main/level/misc/bush_1.go"
+  position {
+    x: 232.0
+    y: 28.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "rock_1"
+  prototype: "/main/level/misc/rock_1.go"
+  position {
+    x: -869.0
+    y: 17.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "rock_2"
+  prototype: "/main/level/misc/rock_2.go"
+  position {
+    x: -1177.0
+    y: -11.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "rock_3"
+  prototype: "/main/level/misc/rock_3.go"
+  position {
+    x: -1435.0
+    y: -143.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
 collection_instances {
   id: "ground"
   collection: "/main/level/ground/ground.collection"
@@ -238,6 +318,52 @@ embedded_instances {
   scale3 {
     x: 0.5
     y: 0.5
+    z: 1.0
+  }
+}
+embedded_instances {
+  id: "enemies"
+  children: "tree"
+  children: "tree1"
+  data: ""
+  position {
+    x: 0.0
+    y: 0.0
+    z: -1.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+embedded_instances {
+  id: "misc"
+  children: "bush_1"
+  children: "rock_1"
+  children: "rock_2"
+  children: "rock_3"
+  data: ""
+  position {
+    x: 0.0
+    y: 0.0
+    z: -0.5
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
     z: 1.0
   }
 }

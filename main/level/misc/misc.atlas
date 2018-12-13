@@ -1,0 +1,15 @@
+images {
+  image: "/main/level/misc/images/bush_1.png"
+}
+images {
+  image: "/main/level/misc/images/rocks_1.png"
+}
+images {
+  image: "/main/level/misc/images/rocks_2.png"
+}
+images {
+  image: "/main/level/misc/images/rocks_3.png"
+}
+margin: 0
+extrude_borders: 0
+inner_padding: 0
