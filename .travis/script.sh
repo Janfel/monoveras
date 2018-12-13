@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-platforms=(Windows Linux)
+platforms=(Windows Linux HTML5)
 declare -A name=(
   [Windows]=x86-win32
   [Linux]=x86-linux
