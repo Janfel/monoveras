@@ -1,6 +1,6 @@
 go.property("speed", 1500)
 go.property("max_speed", 800)
-go.property("jump", 4000)
+go.property("jump", 1000)
 go.property("gravity", 2500)
 go.property("max_fall_speed", 1500)
 go.property("friction", 0.8)
